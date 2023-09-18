@@ -23,7 +23,7 @@ const QuestionList = ({questionList}) => {
   useEffect(()=>{
     setCurrentTask(questionList?.slice
       (0, pageItemCount));
-  }, []);
+  }, [questionList]);
 
   useEffect(()=>{
     const changePage=(index)=>{
@@ -69,6 +69,7 @@ const QuestionList = ({questionList}) => {
                   <Td>
                     <div>
                       {index+1+((currentPage-1)*pageItemCount)}
+                       {/* {index+1} */}
                     </div>
                   </Td>
                   <Td>
@@ -137,7 +138,6 @@ const QuestionList = ({questionList}) => {
       </Table>
 
       <ResponsivePagination current= {currentPage} total={totalPages} onPageChange={setCurrentPage} />
-      {/* <Pagination dir='ltr' page={currentPage} count={pageCount} onChange={handleChange} variant="outlined" shape="rounded"/> */}
     </div>
   )
 }
